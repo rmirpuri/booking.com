@@ -33,7 +33,8 @@ public class BookingSearchTest {
 
 	@Parameters
 	public static Collection<Object[]> getParameters() {
-		return Arrays.asList(new Object[][] { { "London", true, 2 },
+		return Arrays.asList(new Object[][] { 
+				{ "London", true, 2 },
 				{ "Manchester", false, 1 } });
 	}
 
@@ -58,7 +59,7 @@ public class BookingSearchTest {
 	@Test
 	public void testValidSearch() throws InterruptedException {
 
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebDriverWait wait = new WebDriverWait(driver, Long.parseLong(Configuration.get("timeout")));
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("ss")));
 
 		driver.findElement(By.xpath("(//input[@id='ss' ])[1]")).click();
