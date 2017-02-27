@@ -3,6 +3,7 @@ package com.org.booking.booking_com;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -21,15 +22,15 @@ public class Driver {
 		}
 	};
 	
-	public static void add(String browser) throws Exception{
+	public static void add(String browser, Capabilities capabilities) throws Exception{
 		Class<?> driverClass = driverMap.get(browser);
 		//driver = (WebDriver) driverClass.cast(driver);
-		//driver = (WebDriver) driverClass.getConstructor(driverClass).newInstance();
+		driver = (WebDriver) driverClass.getConstructor(Capabilities.class).newInstance(capabilities);
 		
-		if(browser.contains("chrome")){
-			driver = new ChromeDriver();
-			System.out.println(driver);
-		}
+//		if(browser.contains("chrome")){
+//			driver = new ChromeDriver();
+//			System.out.println(driver);
+//		}
 	}
 	
 	public static WebDriver current(){

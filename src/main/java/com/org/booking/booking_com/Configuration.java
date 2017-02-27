@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.Map.Entry;
 import java.util.Properties;
 
 public final class Configuration {
@@ -43,7 +44,9 @@ public final class Configuration {
 	}
 	
 	public static void print(){
-		
+		for(Entry<Object, Object> entry : properties.entrySet()){
+			System.out.println(String.format("%s=%s", entry.getKey(), entry.getValue()));
+		}
 	}
 
 }

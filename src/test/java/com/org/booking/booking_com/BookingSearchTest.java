@@ -11,6 +11,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -38,14 +39,14 @@ public class BookingSearchTest {
 
 	@Before
 	public void setUp() throws Exception {
-
 		Configuration.load();
-		Driver.add(Configuration.get("browser"));
-		driver = Driver.current();
+		Configuration.print();
 		String baseUrl = Configuration.get("url");
-		driver.get(baseUrl);
-		Thread.sleep(5000);
 
+		DesiredCapabilities cap = new DesiredCapabilities();
+		Driver.add(Configuration.get("browser"), cap);
+		driver = Driver.current();
+		driver.get(baseUrl);
 	}
 
 	@After
