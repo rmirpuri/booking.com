@@ -1,4 +1,4 @@
-package com.org.booking.booking_com;
+package com.org.booking.booking_com.test;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -14,6 +14,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.org.booking.booking_com.Configuration;
+import com.org.booking.booking_com.Driver;
 
 @RunWith(Parameterized.class)
 public class BookingSearchTest {
